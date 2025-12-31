@@ -1,17 +1,23 @@
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { LayoutGrid, Smartphone, Clock, Settings, LogOut } from "lucide-react";
 
 // Only "Operational" items here. Settings is moved to the bottom.
 const mainNavItems = [
-    { icon: LayoutGrid, label: "Overview", href: "/" },
-    { icon: Smartphone, label: "Number Inventory", href: "/inventory" }, // Changed icon to Smartphone
-    { icon: Clock, label: "Order History", href: "/orders" }, // Changed icon to Clock/History
+    { icon: LayoutGrid, label: "Overview", href: "/admin" },
+    { icon: Smartphone, label: "Number Inventory", href: "/admin/inventory" }, // Changed icon to Smartphone
+    { icon: Clock, label: "Order History", href: "/admin/orders" }, // Changed icon to Clock/History
 ];
 
 export function Sidebar({ className }) {
     const location = useLocation();
+    const navigate = useNavigate();
+
+    const handleLogout = () => {
+        // TODO: Add actual logout logic
+        navigate('/login');
+    };
 
     // Helper to determine active state classes
     const getNavClass = (href) => {
@@ -57,10 +63,10 @@ export function Sidebar({ className }) {
             <div className="px-4 py-4 mt-auto border-t border-gray-100 space-y-1">
                 <Button
                     variant="ghost"
-                    className={getNavClass("/settings")}
+                    className={getNavClass("/admin/settings")}
                     asChild
                 >
-                    <Link to="/settings">
+                    <Link to="/admin/settings">
                         <Settings className="mr-3 h-5 w-5 text-gray-400" />
                         Settings
                     </Link>
@@ -69,12 +75,10 @@ export function Sidebar({ className }) {
                 <Button
                     variant="ghost"
                     className="w-full justify-start text-red-600 hover:text-red-700 hover:bg-red-50"
-                    asChild
+                    onClick={handleLogout}
                 >
-                    <Link to="/logout">
-                        <LogOut className="mr-3 h-5 w-5" />
-                        Logout
-                    </Link>
+                    <LogOut className="mr-3 h-5 w-5" />
+                    Logout
                 </Button>
             </div>
         </div>
