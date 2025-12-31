@@ -1,10 +1,17 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { LayoutGrid, Smartphone, History, Settings, LogOut, ShieldCheck } from 'lucide-react';
 
 const AdminSidebar = () => {
+    const navigate = useNavigate();
+
+    const handleLogout = () => {
+        // TODO: Add actual logout logic (clear tokens, session, etc.)
+        navigate('/login');
+    };
+
     const navItems = [
-        { label: 'Overview', icon: LayoutGrid, path: '/admin/dashboard' },
+        { label: 'Overview', icon: LayoutGrid, path: '/admin' },
         { label: 'Number Inventory', icon: Smartphone, path: '/admin/inventory' },
         { label: 'Order History', icon: History, path: '/admin/orders' },
     ];
@@ -12,7 +19,7 @@ const AdminSidebar = () => {
     return (
         <aside className="hidden border-r bg-white md:flex w-[280px] min-h-screen flex-col">
             <div className="flex h-[60px] items-center px-6 border-b">
-                <a href="/admin/dashboard" className="flex items-center gap-2 font-semibold">
+                <a href="/admin" className="flex items-center gap-2 font-semibold">
                     <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
                         <svg viewBox="0 0 24 24" fill="white" className="w-5 h-5">
                             <path d="M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5z" />
@@ -52,7 +59,10 @@ const AdminSidebar = () => {
                         <Settings className="h-4 w-4" />
                         Settings
                     </NavLink>
-                    <button className="flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text-red-500 hover:bg-red-50 transition-all">
+                    <button
+                        onClick={handleLogout}
+                        className="flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text-red-500 hover:bg-red-50 transition-all"
+                    >
                         <LogOut className="h-4 w-4" />
                         Logout
                     </button>

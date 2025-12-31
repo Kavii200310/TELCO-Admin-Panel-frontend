@@ -56,7 +56,7 @@ const Dashboard = () => {
     useEffect(() => {
         const fetchData = async () => {
             setIsLoading(true);
-            await new Promise(resolve => setTimeout(resolve, 500)); // Simulate API
+            await new Promise(resolve => setTimeout(resolve, 500)); 
             setStats(MOCK_STATS_DATA);
             setTransactions(MOCK_TRANSACTIONS_DATA);
             setIsLoading(false);

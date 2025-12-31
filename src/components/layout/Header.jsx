@@ -11,7 +11,16 @@ import {
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 
+import { useNavigate } from "react-router-dom";
+
 export function Header() {
+    const navigate = useNavigate();
+
+    const handleLogout = () => {
+        // TODO: Add actual logout logic
+        navigate('/login');
+    };
+
     return (
         // Added justify-between to push Search (left) and Profile (right) apart
         <header className="flex h-16 items-center justify-between border-b border-gray-100 bg-white px-6 lg:px-8">
@@ -71,7 +80,9 @@ export function Header() {
                             <DropdownMenuItem>Settings</DropdownMenuItem>
                             <DropdownMenuItem>Support</DropdownMenuItem>
                             <DropdownMenuSeparator />
-                            <DropdownMenuItem className="text-red-600">Logout</DropdownMenuItem>
+                            <DropdownMenuItem className="text-red-600 focus:text-red-600 focus:bg-red-50 cursor-pointer" onClick={handleLogout}>
+                                Logout
+                            </DropdownMenuItem>
                         </DropdownMenuContent>
                     </DropdownMenu>
                 </div>
