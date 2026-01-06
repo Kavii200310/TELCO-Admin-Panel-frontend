@@ -14,6 +14,7 @@ const OrdersToolbar = ({ searchQuery, onSearchChange, statusFilter, onStatusFilt
     return (
         <div className="p-4 border-b border-gray-100 flex flex-col sm:flex-row items-center gap-4 justify-between">
             {/* Search Input */}
+            
             <div className="relative w-full sm:w-96">
                 <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
                 <Input
