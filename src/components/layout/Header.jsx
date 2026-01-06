@@ -3,12 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Menu, Search, Bell } from "lucide-react";
 import { Sidebar } from "@/components/layout/Sidebar";
 import {
-    DropdownMenu,
-    DropdownMenuContent,
-    DropdownMenuItem,
-    DropdownMenuLabel,
-    DropdownMenuSeparator,
-    DropdownMenuTrigger,
+    DropdownMenu,DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 
 import { useNavigate } from "react-router-dom";
@@ -53,12 +48,7 @@ export function Header() {
 
             {/* Right Section: Notification & Profile */}
             <div className="flex items-center gap-4">
-                {/* Notification Bell */}
-                <Button variant="ghost" size="icon" className="relative text-gray-500 hover:bg-gray-100 rounded-full">
-                    <Bell className="h-5 w-5" />
-                    {/* Red Dot Indicator */}
-                    <span className="absolute top-2 right-2.5 h-2 w-2 bg-red-500 rounded-full border-2 border-white"></span>
-                </Button>
+               
 
                 {/* User Profile */}
                 <div className="flex items-center gap-3 pl-2 border-l border-gray-100">
@@ -73,17 +63,7 @@ export function Header() {
                                 <span className="text-sm font-bold text-blue-700">AD</span>
                             </Button>
                         </DropdownMenuTrigger>
-                        <DropdownMenuContent align="end" className="w-56">
-                            <DropdownMenuLabel>My Account</DropdownMenuLabel>
-                            <DropdownMenuSeparator />
-                            <DropdownMenuItem>Profile</DropdownMenuItem>
-                            <DropdownMenuItem>Settings</DropdownMenuItem>
-                            <DropdownMenuItem>Support</DropdownMenuItem>
-                            <DropdownMenuSeparator />
-                            <DropdownMenuItem className="text-red-600 focus:text-red-600 focus:bg-red-50 cursor-pointer" onClick={handleLogout}>
-                                Logout
-                            </DropdownMenuItem>
-                        </DropdownMenuContent>
+                        
                     </DropdownMenu>
                 </div>
             </div>

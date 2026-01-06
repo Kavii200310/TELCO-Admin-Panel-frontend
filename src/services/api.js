@@ -1,6 +1,6 @@
 import axios from "axios";
 
-// Create axios instance with default configuration
+
 const api = axios.create({
   baseURL: import.meta.env.VITE_API_URL || "http://localhost:5000",
   headers: {
@@ -9,7 +9,7 @@ const api = axios.create({
   timeout: 10000, // 10 seconds
 });
 
-// Request interceptor
+
 api.interceptors.request.use(
   (config) => {
     const token = localStorage.getItem("authToken");
@@ -21,7 +21,7 @@ api.interceptors.request.use(
   (error) => Promise.reject(error)
 );
 
-// Response interceptor
+
 api.interceptors.response.use(
   (response) => response,
   (error) => {
