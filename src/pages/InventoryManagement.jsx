@@ -115,10 +115,7 @@ const Inventory = () => {
               className="pl-9 bg-gray-50 border-gray-200 focus:bg-white"
             />
           </div>
-          <Button variant="outline" className="text-gray-600">
-            <Filter className="w-4 h-4 mr-2" />
-            Filter
-          </Button>
+         
         </div>
 
         {loading ? (

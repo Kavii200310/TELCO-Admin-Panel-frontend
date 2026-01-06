@@ -34,16 +34,13 @@ const OrdersToolbar = ({ searchQuery, onSearchChange, statusFilter, onStatusFilt
                     </SelectTrigger>
                     <SelectContent>
                         <SelectItem value="all">All Statuses</SelectItem>
-                        <SelectItem value="completed">Completed</SelectItem>
+                        <SelectItem value="success">Success</SelectItem>
                         <SelectItem value="pending">Pending</SelectItem>
                         <SelectItem value="failed">Failed</SelectItem>
                     </SelectContent>
                 </Select>
 
-                <Button variant="outline" className="border-gray-200 text-gray-700 hover:bg-gray-50">
-                    <Download className="w-4 h-4 mr-2" />
-                    Export CSV
-                </Button>
+                
             </div>
         </div>
     );

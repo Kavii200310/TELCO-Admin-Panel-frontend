@@ -36,7 +36,7 @@ export function Sidebar({ className }) {
                 <div className="px-4 py-2">
                     {/* Logo Section */}
                     <h2 className="mb-8 text-xl font-bold tracking-tight flex items-center">
-                        <span className="text-blue-600">TELECOM</span>
+                        <span className="text-blue-600">TELECO</span>
                         <span className="text-gray-900">ADMIN</span>
                     </h2>
 
@@ -61,16 +61,7 @@ export function Sidebar({ className }) {
 
             {/* Bottom Section: Settings & Logout */}
             <div className="px-4 py-4 mt-auto border-t border-gray-100 space-y-1">
-                <Button
-                    variant="ghost"
-                    className={getNavClass("/admin/settings")}
-                    asChild
-                >
-                    <Link to="/admin/settings">
-                        <Settings className="mr-3 h-5 w-5 text-gray-400" />
-                        Settings
-                    </Link>
-                </Button>
+              
 
                 <Button
                     variant="ghost"
